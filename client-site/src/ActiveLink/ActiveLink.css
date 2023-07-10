@@ -7,5 +7,6 @@
      color: white;
 }
 .active{
-     color: yellow;
+     color: #81B441;
+     font-weight: bold;
 }

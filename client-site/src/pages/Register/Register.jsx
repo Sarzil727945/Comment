@@ -117,7 +117,7 @@ const Register = () => {
           <div>
                <div className="hero min-h-screen bg-base-200">
                     <div className="hero-content flex-col lg:flex-row">
-                         <div className="text-center lg:text-left w-6/12">
+                         <div className="text-center lg:text-left lg:w-6/12">
                               <h1 className="text-5xl font-bold">Resister now!</h1>
                               <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                          </div>
@@ -196,15 +196,14 @@ const Register = () => {
                                    </div>
                                    <p className='text-red-500'>{error}</p>
 
-                                   <div className="form-control mt-6">
-                                        <button className="btn btn-primary">Sign Up</button>
+                                   <div className="form-control mt-2">
+                                        <button className="btn btn-active btn-secondary text-xl">Sign Up</button>
                                         
                                    </div>
-                              </form>
-                              <div className=' mt-2 mb-8 text-center'>
-                                   <span className='me-1'>Have an account? </span>
-                                   <Link to='/login' className=' text-decoration-none text-red-500 font-semibold text-xl'>Login</Link>
+                                   <div className=' text-end'>
+                                   <Link to='/login' className=' mt-2 italic font-semibold text-blue-600  text-[17px] underline'>Back To Login</Link>
                               </div>
+                              </form>
                          </div>
                     </div>
                </div>

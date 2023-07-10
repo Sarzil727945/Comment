@@ -14,7 +14,7 @@ const Login = () => {
      const [error, setError] = useState('')
      const [user, setUser] = useState('')
      const [passwordShown, setPasswordShown] = useState(false);
-     const [passwordIcon, setPasswordIcon] = useState(false)
+     const [passwordIcon, setPasswordIcon] = useState(false);
 
      const location = useLocation()
      const navigate = useNavigate()
@@ -27,7 +27,7 @@ const Login = () => {
           setPasswordShown(!passwordShown);
           setPasswordIcon(!passwordIcon)
      };
-  
+
 
      const handelForm = (event) => {
           event.preventDefault();
@@ -59,8 +59,10 @@ const Login = () => {
                });
           // Signed in part end
      }
+
      // handelGoogleRegister part start
      const handelGoogleRegister = () => {
+
           googlSignIn()
                .then((result) => {
                     const user = result.user;
@@ -99,21 +101,43 @@ const Login = () => {
                });
      }
      // handelGoogleRegister part end
+
+     // Reset Password part start
+     const handelResetPassword = () => {
+          const email = emailRef.current.value;
+          if (!email) {
+               alert('Please provide your email')
+               return
+          }
+
+          resetPassword(email)
+               .then(() => {
+                    alert('Please check you email')
+               })
+               .catch((error) => {
+                    const errorMessage = error.message;
+                    setError(errorMessage)
+               });
+
+     }
+     // Reset Password part end
      return (
           <div>
                <div className="hero min-h-screen bg-base-200">
                     <div className="hero-content flex-col lg:flex-row-reverse">
-                         <div className="text-center md:w-1/2 lg:text-left">
+                         <div className="text-center lg:w-6/12 lg:text-left">
                               <h1 className="text-5xl font-bold">Login now!</h1>
                               <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                          </div>
-                         <div className="card md:w-1/2 max-w-sm shadow-2xl bg-base-100">
+                         <div className="card lg:w-5/12 w-full shadow-2xl bg-base-100">
                               <form className="card-body" onSubmit={handelForm}>
                                    <div className="form-control">
                                         <label className="label">
                                              <span className="label-text">Email</span>
                                         </label>
-                                        <input type="email" name='email' placeholder="email" className="input input-bordered" />
+                                        <input type="email" name='email' placeholder="email" {...("email", {
+                                             required: true,
+                                        })} className="input input-bordered" ref={emailRef}/>
                                    </div>
                                    <div className="form-control">
                                         <div className="form-control">
@@ -134,17 +158,24 @@ const Login = () => {
                                              <p className=' text-red-400'>{error}</p>
                                         </div>
                                         <label className="label">
-                                             <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                                             <button onClick={handelResetPassword} className=' text-blue-600  text-[15px] underline'>Reset Password?</button>
                                         </label>
                                    </div>
-                                   <div className="form-control mt-6">
-                                        <input type='submit' className="btn btn-primary" value='Login' />
+                                   <div className="form-control mt-5">
+                                        <input type='submit' className="btn btn-active btn-secondary text-xl" value='Login' />
                                    </div>
-                                   <div className="form-control mt-6">
+                                   <div className="form-control mt-2">
                                         <button onClick={handelGoogleRegister} className="btn btn-wide mx-auto">Googl Sign In</button>
                                    </div>
+                                   <div className=' mt-3 flex'>
+                                        <hr className=' w-[30%] my-auto' />
+                                        <p className=' text-center font-semibold'> Don't have an account? </p>
+                                        <hr className=' w-[30%] my-auto' />
+                                   </div>
+                                   <Link to='/resister' className="form-control">
+                                        <button className="btn btn-wide btn-success text-white mx-auto text-lg ">resister</button>
+                                   </Link>
                               </form>
-                              <p> <small>New Here?</small> <Link to='/resister'>Create an account</Link></p>
                          </div>
                     </div>
                </div>
