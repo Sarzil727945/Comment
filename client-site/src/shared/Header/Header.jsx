@@ -1,24 +1,26 @@
-import React from 'react';
-
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import ActiveLink from '../../ActiveLink/ActiveLink';
+import { FaShoppingCart } from 'react-icons/fa';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
+import useCard from '../../hooks/useCard';
 import './Header.css'
 
 
 const Header = () => {
-     // const { user, logOut } = useContext(AuthContext)
-     // console.log(user);
-     // const [card] = useCard()
-     // // logOut part start
-     // const handelLogOut = () => {
-     //      logOut()
-     //           .then(() => {
-     //                // Sign-out successful.
-     //           })
-     //           .catch((error) => {
-     //                // An error happened.
-     //           });
-     // }
-     // // logOut part end
+     const { user, logOut } = useContext(AuthContext)
+     const [card] = useCard()
+     // logOut part start
+     const handelLogOut = () => {
+          logOut()
+               .then(() => {
+                    // Sign-out successful.
+               })
+               .catch((error) => {
+                    // An error happened.
+               });
+     }
+     // logOut part end
 
 
      return (
@@ -54,14 +56,14 @@ const Header = () => {
                          </ul>
                     </div>
                     <div className="navbar-end">
-                         {/* {
+                         {
                               user ? <div className=' flex'>
-                                   <img title={user.displayName} className=' imgStyle me-3' src={user.photoURL} alt="" />
+                                   <img title={user?.displayName} className=' imgStyle me-3' src={user?.photoURL} alt="" />
                                    <div className=' mt-2'>
                                         <button onClick={handelLogOut} variant="info" className=' lg:me-5  btn btn-error'>Log Out</button>
                                    </div>
                               </div> : <button className='btn btn-success lg:me-5'><ActiveLink to="/login">Login</ActiveLink></button> 
-                         } */}
+                         }
                     </div>
                </div>
           </div>
