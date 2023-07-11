@@ -7,6 +7,7 @@ import Swal from 'sweetalert2';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import useTitle from '../../hooks/useTitle';
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
+import { FcGoogle } from 'react-icons/fc';
 
 
 const Login = () => {
@@ -125,7 +126,7 @@ const Login = () => {
           <div>
                <div className="hero min-h-screen bg-base-200">
                     <div className="hero-content flex-col lg:flex-row-reverse">
-                         <div className="text-center lg:w-6/12 lg:text-left">
+                         <div className="text-center lg:w-6/12 lg:text-left lg:ps-5">
                               <h1 className="text-5xl font-bold">Login now!</h1>
                               <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                          </div>
@@ -137,7 +138,7 @@ const Login = () => {
                                         </label>
                                         <input type="email" name='email' placeholder="email" {...("email", {
                                              required: true,
-                                        })} className="input input-bordered" ref={emailRef}/>
+                                        })} className="input input-bordered" ref={emailRef} />
                                    </div>
                                    <div className="form-control">
                                         <div className="form-control">
@@ -156,24 +157,27 @@ const Login = () => {
                                                   </div>
                                              </div>
                                              <p className=' text-red-400'>{error}</p>
+                                             <label className="label">
+                                        <button onClick={handelResetPassword} className='  text-[15px] font-semibold text-blue-600 underline'>Forgot Password?</button>
+                                   </label>
                                         </div>
-                                        <label className="label">
-                                             <button onClick={handelResetPassword} className=' text-blue-600  text-[15px] underline'>Reset Password?</button>
-                                        </label>
-                                   </div>
-                                   <div className="form-control mt-5">
-                                        <input type='submit' className="btn btn-active btn-secondary text-xl" value='Login' />
                                    </div>
                                    <div className="form-control mt-2">
-                                        <button onClick={handelGoogleRegister} className="btn btn-wide mx-auto">Googl Sign In</button>
+                                        <input type='submit' className="btn btn-active btn-secondary text-xl" value='Log in' />
+                                   </div>
+                                   <div className="form-control mt-3 flex ">
+                                        <button onClick={handelGoogleRegister} className="btn btn-square mx-auto w-36"> <span className='text-[40px]'><FcGoogle/></span> <span className=' ms-1 text-[18px] text-purple-500'>Sing in</span></button>
+                                   </div>
+                                   <div className=' text-center mt-2'>
+                                        or
                                    </div>
                                    <div className=' mt-3 flex'>
                                         <hr className=' w-[30%] my-auto' />
                                         <p className=' text-center font-semibold'> Don't have an account? </p>
                                         <hr className=' w-[30%] my-auto' />
                                    </div>
-                                   <Link to='/resister' className="form-control">
-                                        <button className="btn btn-wide btn-success text-white mx-auto text-lg ">resister</button>
+                                   <Link to='/resister' className="form-control mt-1">
+                                        <button className="btn btn-wide btn-success text-white mx-auto text-[16px]">Create new account</button>
                                    </Link>
                               </form>
                          </div>

@@ -6,7 +6,7 @@ import { useContext } from 'react';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
 import { updateProfile } from 'firebase/auth';
-import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
+import { AiFillBackward, AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 
 
 const Register = () => {
@@ -63,7 +63,7 @@ const Register = () => {
                     const currentUser = userCredential.user;
                     setSuccess('Create user account successFull')
                     upDataUser(currentUser, data.name, data.photo)
-                    
+
                     // user information post data page start 
                     const saveUser = { name: data.name, email: data.email, img: data.photoUrl }
                     // fetch('https://assignment12-server-site.vercel.app/users', {
@@ -129,8 +129,8 @@ const Register = () => {
                                         <label className="label">
                                              <span className="label-text">Name</span>
                                         </label>
-                                        <input type="text" 
-                                        placeholder="Name" {...register("name", { required: true })} name='name' className="input input-bordered" />
+                                        <input type="text"
+                                             placeholder="Name" {...register("name", { required: true })} name='name' className="input input-bordered" />
                                         {errors.name && <span className=' text-red-500 mt-1'>Name is required</span>}
                                    </div>
 
@@ -138,8 +138,8 @@ const Register = () => {
                                         <label className="label">
                                              <span className="label-text">Photo URL</span>
                                         </label>
-                                        <input type="text" 
-                                        placeholder="Photo URL" {...register("photo")} name='photo' className="input input-bordered" />
+                                        <input type="text"
+                                             placeholder="Photo URL" {...register("photo")} name='photo' className="input input-bordered" />
                                    </div>
 
                                    <div className="form-control">
@@ -159,11 +159,11 @@ const Register = () => {
                                         </label>
                                         <div className=' relative '>
                                              <input type={passwordShown ? "text" : "password"}
-                                             placeholder="password" {...register("password", {
-                                                  required: true,
-                                                  minLength: 6,
-                                                  maxLength: 10,
-                                             })} name='password' className="input input-bordered w-full" />
+                                                  placeholder="password" {...register("password", {
+                                                       required: true,
+                                                       minLength: 6,
+                                                       maxLength: 10,
+                                                  })} name='password' className="input input-bordered w-full" />
                                              <div className=' absolute end-4 top-4'>
                                                   <p className=' text-lg' onClick={togglePassword} >{
                                                        passwordIcon ? <AiFillEye /> : <AiFillEyeInvisible />
@@ -181,12 +181,12 @@ const Register = () => {
                                              <span className="label-text">Conform Password</span>
                                         </label>
                                         <div className=' relative '>
-                                             <input type={conformPasswordShown ? "text" : "password"} 
-                                             placeholder="Conform Password" {...register("conformPassword", {
-                                                  required: true,
-                                                  minLength: 6,
-                                                  maxLength: 10,
-                                             })} name='conformPassword' className="input input-bordered w-full" />
+                                             <input type={conformPasswordShown ? "text" : "password"}
+                                                  placeholder="Conform Password" {...register("conformPassword", {
+                                                       required: true,
+                                                       minLength: 6,
+                                                       maxLength: 10,
+                                                  })} name='conformPassword' className="input input-bordered w-full" />
                                              <div className=' absolute end-4 top-4'>
                                                   <p className=' text-lg' onClick={toggleConformPassword} >{
                                                        conformPasswordIcon ? <AiFillEye /> : <AiFillEyeInvisible />
@@ -198,11 +198,13 @@ const Register = () => {
 
                                    <div className="form-control mt-2">
                                         <button className="btn btn-active btn-secondary text-xl">Sign Up</button>
-                                        
+
                                    </div>
                                    <div className=' text-end'>
-                                   <Link to='/login' className=' mt-2 italic font-semibold text-blue-600  text-[17px] underline'>Back To Login</Link>
-                              </div>
+                                        <Link to='/login' className=' mt-2 italic font-semibold text-blue-600  text-[17px] underline flex justify-end'>
+                                             <span className=' me-1 mt-1 font-semibold'><AiFillBackward /></span>
+                                             <span>Back To Login</span></Link>
+                                   </div>
                               </form>
                          </div>
                     </div>
