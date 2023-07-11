@@ -177,7 +177,7 @@ const Login = () => {
                                         <hr className=' w-[30%] my-auto' />
                                    </div>
                                    <Link to='/resister' className="form-control mt-1">
-                                        <button className="btn btn-wide btn-success text-white mx-auto text-[16px]">Create new account</button>
+                                        <button className="btn btn-wide btn-success text-white mx-auto text-[17px]">Create new account</button>
                                    </Link>
                               </form>
                          </div>

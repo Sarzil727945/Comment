@@ -1,0 +1,21 @@
+[
+    {
+        "_id": 1,
+        "name": "Web Design",
+        "job": "300 Jobs Available",
+        "img":"https://img.freepik.com/free-vector/modern-web-design-concept-with-flat-style_23-2147933488.jpg?w=740&t=st=1687106381~exp=1687106981~hmac=feeed789c8d96da55ef1408caa6a4a28f9b6b32fa65157f0d0e1ebffbc09e7cf"
+    },
+    {
+        "_id": 2,
+        "name": "Web Development",
+        "job": "100+ Jobs Available",
+        "img":"https://img.freepik.com/free-vector/hand-drawn-web-developers_23-2148819604.jpg?w=996&t=st=1687106571~exp=1687107171~hmac=0e69c62c47a9ef6733d7342c7d6395d17fd12fa5ebebad776bee9aa37f9abe47"
+    },
+    {
+        "_id": 3,
+        "name": "Error Handling",
+        "job": "150 Jobs Available",
+        "img":"https://img.freepik.com/premium-photo/close-up-hacker-hands-with-abstract-red-error-hologram-connection-crime-concept-double-exposure_670147-24876.jpg?w=996"
+    }
+    
+]
